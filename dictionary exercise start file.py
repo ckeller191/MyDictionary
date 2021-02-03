@@ -100,12 +100,12 @@ def deal_cards(deck, number):
     """
 
     list_of_keys = []
-"""
+    """
     for key in deck:
         list_of_keys.append(key)
 
     print(list_of_keys)
-"""
+    """
     for count in range(number):
         card = random.choice(list(deck))
         value = deck[card]
