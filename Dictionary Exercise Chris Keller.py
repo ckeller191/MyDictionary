@@ -1,7 +1,7 @@
 """
 PART ONE OF ASSIGNMENT
 """
-
+"""
 open_file = open("text.txt", "r")
 string = ""
 
@@ -36,3 +36,17 @@ print("\nNumber of unique words: ", len(word_count))
 
 
 open_file.close()
+
+"""
+
+ws_file = open("WorldSeriesWinners.txt", "r")
+
+ws_dict = {}
+
+
+for i in range(1903, 2010):
+    team = ws_file.readline().rstrip("\n")
+    ws_dict[i] = team
+
+
+print(ws_dict)
