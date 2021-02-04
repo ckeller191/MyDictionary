@@ -1,13 +1,26 @@
+"""
+PART ONE OF ASSIGNMENT
+"""
+
 open_file = open("text.txt", "r")
 string = ""
 
 for line in open_file:
     string += line
 
+
+undesired_punct = ["'", '"', ",", ".", "!", ":", ";", "#", "@", "-"]
+
+no_punct = ""
+
+for char in string:
+    if char not in undesired_punct:
+        no_punct = no_punct + char
+
 word_count = {}
 
 
-for word in string.split():
+for word in no_punct.split():
     if word in word_count:
         word_count[word] += 1
     else:
