@@ -1,7 +1,7 @@
 """
 PART ONE OF ASSIGNMENT
 """
-"""
+
 open_file = open("text.txt", "r")
 string = ""
 
@@ -38,15 +38,39 @@ print("\nNumber of unique words: ", len(word_count))
 open_file.close()
 
 """
+PART TWO OF ASSIGNMENT
+"""
 
 ws_file = open("WorldSeriesWinners.txt", "r")
 
 ws_dict = {}
 
+num_wins = {}
 
-for i in range(1903, 2010):
-    team = ws_file.readline().rstrip("\n")
-    ws_dict[i] = team
+for i in range(1903, 2009):
+    if i != 1904 and i != 1994:
+        team = ws_file.readline().rstrip("\n")
+        ws_dict[i] = team
 
 
-print(ws_dict)
+for team in ws_dict.values():
+    if team in num_wins:
+        num_wins[team] += 1
+    else:
+        num_wins[team] = 1
+
+
+year = int(
+    input(
+        "Pick a year between 1903 and 2008, and I'll tell you who won that World Series. "
+    )
+)
+
+if year in [1904, 1994]:
+    print("Sorry, the World Series was not played in 1904 or 1994.")
+else:
+    print("The " + ws_dict[year] + " won the World Series that year.")
+    team = ws_dict[year]
+    print("They have won the world series " + str(num_wins[team]) + " times.")
+
+ws_file.close()
